@@ -1,0 +1,22 @@
+name: Continuos-Integration
+on:
+  push:
+    branches: 
+      -master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: BajarRepo
+      uses: actions/checkout@v4.1.7
+
+    - name: InstallNodeJS
+      uses: actions/setup-node@v4.0.3
+
+    - name: InstalarDependencias
+      run: npm install
+
+    - name: EjecutarProyecto
+      run: node index.js
